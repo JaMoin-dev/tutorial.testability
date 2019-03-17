@@ -56,7 +56,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CarLogger.cs" />
+    <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="Repository\CarRepo.cs" />
+    <Compile Include="Utils\DelegateCommand.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

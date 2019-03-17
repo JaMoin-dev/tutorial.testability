@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:jamoin.demo.testability.startup"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
-        <Button Click="LogAllCars_Click" Content="Log all cars to file" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Content="Log all cars to file" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding LogCommand}"/>
     </Grid>
 </Window>
