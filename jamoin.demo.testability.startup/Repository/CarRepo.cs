@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
 using jamoin.demo.testability.startup.Entities;
+using jamoin.demo.testability.startup.Utils;
 
 namespace jamoin.demo.testability.startup.Repository
 {
-    public static class CarRepo
+    public class CarRepo : ICarRepo
     {
         /// <summary>
         /// loads all cars from DB
         /// </summary>
-        public static List<Car> LoadAllCars()
+        public List<Car> LoadAllCars()
         {
             //using (var db = new CarDbContext())
             //{

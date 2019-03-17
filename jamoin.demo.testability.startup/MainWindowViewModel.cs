@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using jamoin.demo.testability.startup.Entities;
@@ -12,10 +13,16 @@ namespace jamoin.demo.testability.startup
     public class MainWindowViewModel
     {
         private readonly IMessageBoxProxy _messageBox;
+        private readonly IProcessProxy _processProxy;
+        private readonly ICarLogger _carLogger;
+        private readonly ICarRepo _carRepo;
 
-        public MainWindowViewModel(IMessageBoxProxy messageBox)
+        public MainWindowViewModel(IMessageBoxProxy messageBox, IProcessProxy processProxy, ICarLogger carLogger, ICarRepo carRepo)
         {
             _messageBox = messageBox;
+            _processProxy = processProxy;
+            _carLogger = carLogger;
+            _carRepo = carRepo;
             LogCommand = new DelegateCommand(ExecuteLogCommand);
         }
 
@@ -29,7 +36,7 @@ namespace jamoin.demo.testability.startup
             switch (result)
             {
                 case MessageBoxResult.Yes:
-                    carsToLog.AddRange(CarRepo.LoadAllCars());
+                    carsToLog.AddRange(_carRepo.LoadAllCars());
                     break;
                 case MessageBoxResult.No:
                     carsToLog.Add(new Car()
@@ -48,10 +55,12 @@ namespace jamoin.demo.testability.startup
 
             // log data and show results
             var logPath = System.IO.Path.GetTempFileName() + ".txt";
-            await CarLogger.LogAllCarsAsync(logPath, carsToLog.ToArray());
-            Process.Start(logPath);
+            await _carLogger.LogAllCarsAsync(logPath, carsToLog.ToArray());
+            _processProxy.Start(logPath);
         }
 
         public ICommand LogCommand { get; set; }
     }
+
+    
 }
