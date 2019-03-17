@@ -11,15 +11,18 @@ namespace jamoin.demo.testability.startup
 {
     public class MainWindowViewModel
     {
-        public MainWindowViewModel()
+        private readonly IMessageBoxProxy _messageBox;
+
+        public MainWindowViewModel(IMessageBoxProxy messageBox)
         {
+            _messageBox = messageBox;
             LogCommand = new DelegateCommand(ExecuteLogCommand);
         }
 
         private async void ExecuteLogCommand(object obj)
         {
             // ask user what to log
-            var result = MessageBox.Show("'Yes' to log cars from Database and 'No' to log one special car.", "What cars shall be logged?", MessageBoxButton.YesNoCancel);
+            var result = _messageBox.Show("'Yes' to log cars from Database and 'No' to log one special car.", "What cars shall be logged?", MessageBoxButton.YesNoCancel);
 
             // load data to be logged
             var carsToLog = new List<Car>();

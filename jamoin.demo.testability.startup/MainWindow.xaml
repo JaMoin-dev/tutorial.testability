@@ -4,11 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:jamoin.demo.testability.startup"
+        xmlns:utils="clr-namespace:jamoin.demo.testability.startup.Utils"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Window.DataContext>
-        <local:MainWindowViewModel/>
-    </Window.DataContext>
+        Title="MainWindow" Height="450" Width="800"
+        DataContext="{x:Static utils:ViewModelLocator.MainWindowViewModel}">
+    
     <Grid>
         <Button Content="Log all cars to file" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding LogCommand}"/>
     </Grid>

@@ -56,9 +56,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CarLogger.cs" />
+    <Compile Include="Utils\IMessageBoxProxy.cs" />
     <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="Utils\MessageBoxProxy.cs" />
     <Compile Include="Repository\CarRepo.cs" />
     <Compile Include="Utils\DelegateCommand.cs" />
+    <Compile Include="Utils\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
