@@ -4,6 +4,6 @@ namespace jamoin.demo.testability.startup.Utils
 {
     public interface IMessageBoxProxy
     {
-        MessageBoxResult Show(string yesToLogCarsFromDatabaseAndNoToLogOneSpecialCar, string whatCarsShallBeLogged, MessageBoxButton yesNoCancel);
+        MessageBoxResult Show(string messageBoxText, string caption, MessageBoxButton button);
     }
 }

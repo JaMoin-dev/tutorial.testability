@@ -51,8 +51,6 @@ namespace jamoin.demo.testability.startup.test
             processProxyMock.Verify(c => c.Start(It.IsAny<string>()), Times.Once);
         }
 
-        
-
         [TestMethod]
         public void LogCommandExecute_WithUserNo_DoesntCallRepoButStillLogs()
         {
@@ -71,6 +69,8 @@ namespace jamoin.demo.testability.startup.test
             carLoggerMock.Verify(c => c.LogAllCarsAsync(It.IsAny<string>(), It.IsAny<Car[]>()), Times.Once);
             processProxyMock.Verify(c => c.Start(It.IsAny<string>()), Times.Once);
         }
+
+
 
         private Mock<ICarRepo> CreateCarRepoMockWithResult(List<Car> cars)
         {
