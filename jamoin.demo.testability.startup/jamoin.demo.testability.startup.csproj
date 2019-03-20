@@ -56,8 +56,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CarLogger.cs" />
+    <Compile Include="Utils\FileProxy.cs" />
     <Compile Include="Utils\ICarLogger.cs" />
     <Compile Include="Utils\ICarRepo.cs" />
+    <Compile Include="Utils\IFileProxy.cs" />
     <Compile Include="Utils\IMessageBoxProxy.cs" />
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="Utils\IProcessProxy.cs" />
